@@ -1,0 +1,10 @@
+services:
+  er-care-board:
+    build: .
+    image: er-care-board:latest
+    ports: ["8080:80"]            # เปิด http://<server>:8080/install.php เพื่อตั้งค่าครั้งแรก
+    volumes: ["er_data:/data"]    # เก็บค่าตั้งค่าไว้ถาวร (ไม่หายเมื่ออัปเดตอิมเมจ)
+    extra_hosts: ["host.docker.internal:host-gateway"]   # ถ้า DB อยู่เครื่องเดียวกับ Docker
+    restart: unless-stopped
+volumes:
+  er_data:

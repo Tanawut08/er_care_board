@@ -1,0 +1,5 @@
+# กันเปิดไฟล์ตั้งค่า/ไลบรารีผ่านเว็บ
+<FilesMatch "^(config(\.sample)?|lib)\.php$">
+  Require all denied
+</FilesMatch>
+Options -Indexes
